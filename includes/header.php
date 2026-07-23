@@ -55,6 +55,7 @@ if (isset($_COOKIE["theme"])) {
         <?php } ?>
         <a href="<?php echo $base_path; ?>about.php">About</a>
         <a href="<?php echo $base_path; ?>contact.php">Contact</a>
+        <a href="<?php echo $base_path; ?>help/index.php">Help</a>
         <a href="<?php echo $base_path; ?>theme.php?theme=normal">Normal Theme</a>
         <a href="<?php echo $base_path; ?>theme.php?theme=dark">Dark Theme</a>
         <a href="<?php echo $base_path; ?>theme.php?theme=blue">Blue Theme</a>
