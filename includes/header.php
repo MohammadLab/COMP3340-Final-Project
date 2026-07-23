@@ -8,6 +8,21 @@ if (session_status() == PHP_SESSION_NONE) {
 if (!isset($base_path)) {
     $base_path = "";
 }
+
+/* choose theme */
+$theme_file = "style.css";
+
+if (isset($_COOKIE["theme"])) {
+    if ($_COOKIE["theme"] == "dark") {
+        $theme_file = "dark.css";
+    } else {
+        if ($_COOKIE["theme"] == "blue") {
+            $theme_file = "blue.css";
+        } else {
+            $theme_file = "style.css";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +33,7 @@ if (!isset($base_path)) {
     <meta name="description" content="Moe's PC Parts is a simple computer parts website.">
     <meta name="keywords" content="pc parts, computer parts, moe's pc parts">
     <title>Moe's PC Parts</title>
-    <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo $base_path; ?>css/<?php echo $theme_file; ?>">
 </head>
 <body>
     <!-- main header -->
@@ -40,6 +55,9 @@ if (!isset($base_path)) {
         <?php } ?>
         <a href="<?php echo $base_path; ?>about.php">About</a>
         <a href="<?php echo $base_path; ?>contact.php">Contact</a>
+        <a href="<?php echo $base_path; ?>theme.php?theme=normal">Normal Theme</a>
+        <a href="<?php echo $base_path; ?>theme.php?theme=dark">Dark Theme</a>
+        <a href="<?php echo $base_path; ?>theme.php?theme=blue">Blue Theme</a>
     </nav>
 
     <?php if (isset($_SESSION["user_id"])) { ?>
