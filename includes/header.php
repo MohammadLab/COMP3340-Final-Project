@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +24,18 @@
     <nav>
         <a href="index.php">Home</a>
         <a href="products.php">Products</a>
+        <?php if (isset($_SESSION["user_id"])) { ?>
+            <a href="cart.php">Cart</a>
+            <a href="order_history.php">Order History</a>
+            <a href="logout.php">Logout</a>
+        <?php } else { ?>
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+        <?php } ?>
         <a href="about.php">About</a>
         <a href="contact.php">Contact</a>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
-        <a href="cart.php">Cart</a>
     </nav>
+
+    <?php if (isset($_SESSION["user_id"])) { ?>
+        <p>Welcome, <?php echo $_SESSION["first_name"]; ?>!</p>
+    <?php } ?>
