@@ -13,6 +13,8 @@ include "../includes/database.php";
     if (!isset($_SESSION["user_id"]) || $_SESSION["role"] != "admin") {
         echo "<p>Access denied.</p>";
     } else {
+        echo "<p><a href='monitor.php'>Website Monitoring</a></p>";
+
         /* get products */
         $sql = "SELECT * FROM products";
         $result = mysqli_query($conn, $sql);
