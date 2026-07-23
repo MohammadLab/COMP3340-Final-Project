@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "includes/header.php";
 include "includes/database.php";
 ?>
@@ -9,6 +8,7 @@ include "includes/database.php";
     <h2>Cart</h2>
 
     <?php
+    /* display cart */
     if (!isset($_SESSION["user_id"])) {
         echo "<p>Please log in to view your cart.</p>";
     } else {

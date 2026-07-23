@@ -1,25 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-ob_start();
+$base_path = "../";
 include "../includes/header.php";
-$header = ob_get_clean();
-
-/* fix header paths for the admin folder */
-$header = str_replace('href="css/style.css"', 'href="../css/style.css"', $header);
-$header = str_replace('href="index.php"', 'href="../index.php"', $header);
-$header = str_replace('href="products.php"', 'href="../products.php"', $header);
-$header = str_replace('href="cart.php"', 'href="../cart.php"', $header);
-$header = str_replace('href="order_history.php"', 'href="../order_history.php"', $header);
-$header = str_replace('href="logout.php"', 'href="../logout.php"', $header);
-$header = str_replace('href="register.php"', 'href="../register.php"', $header);
-$header = str_replace('href="login.php"', 'href="../login.php"', $header);
-$header = str_replace('href="about.php"', 'href="../about.php"', $header);
-$header = str_replace('href="contact.php"', 'href="../contact.php"', $header);
-echo $header;
-
 include "../includes/database.php";
 ?>
 
@@ -28,13 +9,13 @@ include "../includes/database.php";
     <h2>Admin Products</h2>
 
     <?php
-    /* check if user is an admin */
+    /* check admin */
     if (!isset($_SESSION["user_id"]) || $_SESSION["role"] != "admin") {
         echo "<p>Access denied.</p>";
     } else {
         $message = "";
 
-        /* add product when form is submitted */
+        /* add product */
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $product_name = $_POST["product_name"];
             $category = $_POST["category"];
@@ -113,7 +94,7 @@ include "../includes/database.php";
         <h3>Product List</h3>
 
         <?php
-        /* get all products */
+        /* get products */
         $sql = "SELECT * FROM products";
         $result = mysqli_query($conn, $sql);
 

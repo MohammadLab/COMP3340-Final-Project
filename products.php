@@ -4,6 +4,7 @@
 <?php
 $message = "";
 
+/* add product to cart */
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user_id"])) {
     $user_id = $_SESSION["user_id"];
     $product_id = $_POST["product_id"];
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["user_id"])) {
     ?>
 
     <?php
+    /* get products */
     $sql = "SELECT * FROM products";
     $result = mysqli_query($conn, $sql);
 

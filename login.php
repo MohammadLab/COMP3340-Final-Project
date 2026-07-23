@@ -1,10 +1,10 @@
 <?php
-session_start();
 include "includes/header.php";
 include "includes/database.php";
 
 $message = "";
 
+/* check login */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];

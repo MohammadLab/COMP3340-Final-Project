@@ -1,6 +1,12 @@
 <?php
+/* start session */
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
+
+/* set link path */
+if (!isset($base_path)) {
+    $base_path = "";
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +18,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta name="description" content="Moe's PC Parts is a simple computer parts website.">
     <meta name="keywords" content="pc parts, computer parts, moe's pc parts">
     <title>Moe's PC Parts</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo $base_path; ?>css/style.css">
 </head>
 <body>
     <!-- main header -->
@@ -22,18 +28,18 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <!-- main navigation -->
     <nav>
-        <a href="index.php">Home</a>
-        <a href="products.php">Products</a>
+        <a href="<?php echo $base_path; ?>index.php">Home</a>
+        <a href="<?php echo $base_path; ?>products.php">Products</a>
         <?php if (isset($_SESSION["user_id"])) { ?>
-            <a href="cart.php">Cart</a>
-            <a href="order_history.php">Order History</a>
-            <a href="logout.php">Logout</a>
+            <a href="<?php echo $base_path; ?>cart.php">Cart</a>
+            <a href="<?php echo $base_path; ?>order_history.php">Order History</a>
+            <a href="<?php echo $base_path; ?>logout.php">Logout</a>
         <?php } else { ?>
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
+            <a href="<?php echo $base_path; ?>register.php">Register</a>
+            <a href="<?php echo $base_path; ?>login.php">Login</a>
         <?php } ?>
-        <a href="about.php">About</a>
-        <a href="contact.php">Contact</a>
+        <a href="<?php echo $base_path; ?>about.php">About</a>
+        <a href="<?php echo $base_path; ?>contact.php">Contact</a>
     </nav>
 
     <?php if (isset($_SESSION["user_id"])) { ?>

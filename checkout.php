@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "includes/header.php";
 include "includes/database.php";
 ?>
@@ -9,6 +8,7 @@ include "includes/database.php";
     <h2>Checkout</h2>
 
     <?php
+    /* checkout cart */
     if (!isset($_SESSION["user_id"])) {
         echo "<p>Please log in to checkout.</p>";
     } else {
@@ -29,6 +29,7 @@ include "includes/database.php";
                 $total = $total + ($row["price"] * $row["quantity"]);
             }
 
+            /* create order */
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $order_date = date("Y-m-d H:i:s");
                 $order_sql = "INSERT INTO orders (user_id, order_date, total)

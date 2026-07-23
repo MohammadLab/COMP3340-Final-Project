@@ -1,5 +1,5 @@
 <?php
-session_start();
+$base_path = "../";
 include "../includes/header.php";
 include "../includes/database.php";
 ?>
@@ -9,9 +9,11 @@ include "../includes/database.php";
     <h2>Admin Page</h2>
 
     <?php
+    /* check admin */
     if (!isset($_SESSION["user_id"]) || $_SESSION["role"] != "admin") {
         echo "<p>Access denied.</p>";
     } else {
+        /* get products */
         $sql = "SELECT * FROM products";
         $result = mysqli_query($conn, $sql);
 
