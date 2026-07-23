@@ -46,6 +46,7 @@ if (isset($_COOKIE["theme"])) {
         <a href="<?php echo $base_path; ?>index.php">Home</a>
         <a href="<?php echo $base_path; ?>products.php">Products</a>
         <?php if (isset($_SESSION["user_id"])) { ?>
+            <a href="<?php echo $base_path; ?>profile.php">Profile</a>
             <a href="<?php echo $base_path; ?>cart.php">Cart</a>
             <a href="<?php echo $base_path; ?>order_history.php">Order History</a>
             <a href="<?php echo $base_path; ?>logout.php">Logout</a>
