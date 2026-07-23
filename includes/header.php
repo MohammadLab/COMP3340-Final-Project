@@ -34,6 +34,7 @@ if (isset($_COOKIE["theme"])) {
     <meta name="keywords" content="pc parts, computer parts, moe's pc parts">
     <title>Moe's PC Parts</title>
     <link rel="stylesheet" href="<?php echo $base_path; ?>css/<?php echo $theme_file; ?>">
+    <script src="<?php echo $base_path; ?>js/script.js"></script>
 </head>
 <body>
     <!-- main header -->

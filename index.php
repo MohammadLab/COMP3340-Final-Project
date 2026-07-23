@@ -6,6 +6,7 @@
         <h2>Welcome to Moe's PC Parts</h2>
         <p>Moe's PC Parts sells computer components for building and upgrading computers.</p>
         <p><a class="button" href="products.php">Browse Products</a></p>
+        <p><button onclick="showWelcome()">Welcome Message</button></p>
     </section>
 
     <!-- product categories -->
